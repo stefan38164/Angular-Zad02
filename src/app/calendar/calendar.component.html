@@ -1,0 +1,24 @@
+<body>  
+<div class="wrapper">
+    <header>
+      <p class="current-date">{{ currentDate }}</p>
+      <div class="icons">
+        <span  (click)="prevMonth()">&lt;</span>
+        <span  (click)="nextMonth()">&gt;</span>
+      </div>
+    </header>
+    <div class="calendar">
+      <ul class="weeks">
+        <li *ngFor="let day of daysOfWeek">{{ day }}</li>
+      </ul>
+      <ul class="days">
+        <li *ngFor="let day of daysInMonth; let i = index" 
+        [ngClass]="{'inactive': i < firstday || i>=firstday+lastdate}">{{ day }}</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+  
+  
+  
