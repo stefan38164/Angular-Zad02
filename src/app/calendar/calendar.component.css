@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  sans-serif;
+  font-family: sans-serif;
 }
 
-body {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,6 @@ body {
 
 .wrapper header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 25px;
   background-color: #0e44cc;
@@ -30,15 +29,11 @@ body {
   border-radius: 15px 15px 0 0;
 }
 
-header .icons {
-  display: flex;
-}
-
-header .icons span {
+.btn {
   height: 40px;
   width: 40px;
-  margin: 0 10px;
   cursor: pointer;
+  margin: 0 5px;
   color: #fff;
   text-align: center;
   line-height: 40px;
@@ -46,36 +41,34 @@ header .icons span {
   user-select: none;
   border-radius: 50%;
   background-color: #1ba1e4;
-  transition: all 0.3s ease;
+  border: none;
+  transition: background-color 0.3s ease;
 }
-
-header .icons span:hover {
+.btn:hover {
   background-color: #2980b9;
 }
-
-header .current-date {
+.current-date {
   font-size: 1.4rem;
   font-weight: 500;
+  margin: 0 20px 0;
 }
 
 .calendar {
   padding: 20px;
 }
 
-.calendar ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  text-align: center;
-}
-
 .calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.calendar li {
+.calendar .days .btn {
+  width: 100%;
   color: #333;
-  width: calc(100% / 7);
+  line-height: 40px;
   font-size: 1.1rem;
   cursor: pointer;
   position: relative;
@@ -84,17 +77,23 @@ header .current-date {
   border-radius: 30%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-
-.calendar .weeks li {
+.calendar .days .inactive {
+  color: #bbb;
+}
+.calendar .days .today {
+  border: solid #0e44cc 2px;
+}
+.calendar .weeks {
+  display: flex;
+  justify-content: space-around;
+}
+.calendar .weeks span {
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: default;
 }
-.calendar .weeks li:last-child {
+.calendar .weeks span:last-child {
   font-weight: 700;
   cursor: default;
   color: red;
-}
-
-.days li.inactive {
-  color: #bbb;
 }
