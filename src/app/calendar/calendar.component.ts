@@ -6,12 +6,12 @@ import { ChangeMonthOrYear, monthArray, daysArray } from './data';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  daysOfWeek: string[]=[];
-  daysInMonth: number[]=[];
-  currYear: number=0;
-  currMonth: number=0;
-  firstday: number=0;
-  lastdate: number=0;
+  daysOfWeek!: string[]
+  daysInMonth!: number[];
+  currYear!: number;
+  currMonth!: number;
+  firstday!: number;
+  lastdate!: number;
   changeType = ChangeMonthOrYear;
   months = monthArray;
 
@@ -27,7 +27,6 @@ export class CalendarComponent implements OnInit {
     const firstDayofMonth = this.dayOfDate(0);
     this.firstday = firstDayofMonth;
     const lastDateofMonth = this.lastDateOfMonth(this.currMonth + 1);
-    const lastDayofMonth = this.dayOfDate(lastDateofMonth);
     this.lastdate = lastDateofMonth;
     const lastDateofLastMonth = this.lastDateOfMonth(this.currMonth);
     this.daysInMonth = [];
