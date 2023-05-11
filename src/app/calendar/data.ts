@@ -1,8 +1,8 @@
 export enum ChangeMonthOrYear {
-  prevMonth = 1,
-  nextMonth = 2,
-  prevYear = 3,
-  nextYear = 4,
+  PrevMonth = 1,
+  NextMonth,
+  PrevYear,
+  NextYear,
 }
 
 export const monthArray = [

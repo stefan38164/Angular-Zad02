@@ -93,7 +93,5 @@
   cursor: default;
 }
 .calendar .weeks span:last-child {
-  font-weight: 700;
-  cursor: default;
   color: red;
 }

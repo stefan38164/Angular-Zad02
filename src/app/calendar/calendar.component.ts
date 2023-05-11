@@ -6,12 +6,12 @@ import { ChangeMonthOrYear, monthArray, daysArray } from './data';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  daysOfWeek: string[];
-  daysInMonth: number[];
-  currYear: number;
-  currMonth: number;
-  firstday: number;
-  lastdate: number;
+  daysOfWeek: string[]=[];
+  daysInMonth: number[]=[];
+  currYear: number=0;
+  currMonth: number=0;
+  firstday: number=0;
+  lastdate: number=0;
   changeType = ChangeMonthOrYear;
   months = monthArray;
 
@@ -43,27 +43,34 @@ export class CalendarComponent implements OnInit {
       }
     }
   }
-  changeMonthOrYear(change: ChangeMonthOrYear) {
-    if (change === this.changeType.prevMonth) {
-      this.currMonth--;
-      if (this.currMonth < 0) {
-        this.currMonth = 11;
+  
+  changeMonthOrYear(change:number) {
+    switch (change) {
+      case this.changeType.PrevMonth:
+        this.currMonth--;
+        if (this.currMonth < 0) {
+          this.currMonth = 11;
+          this.currYear--;
+        }
+        break;
+      case this.changeType.NextMonth:
+        this.currMonth++;
+        if (this.currMonth > 11) {
+          this.currMonth = 0;
+          this.currYear++;
+        }
+        break;
+      case this.changeType.PrevYear:
         this.currYear--;
-      }
-    } else if (change === this.changeType.nextMonth) {
-      this.currMonth++;
-      if (this.currMonth > 11) {
-        this.currMonth = 0;
+        break;
+      case this.changeType.NextYear:
         this.currYear++;
-      }
-    } else if (change === this.changeType.prevYear) {
-      this.currYear--;
-    } else if (change === this.changeType.nextYear) {
-      this.currYear++;
+        break;
     }
-
+  
     this.renderCalendar();
   }
+  
   dayOfDate(date: number): number {
     return new Date(this.currYear, this.currMonth, date).getDay();
   }
@@ -81,9 +88,8 @@ export class CalendarComponent implements OnInit {
       this.alert(this.selectDate(this.currMonth, day));
     }
   }
-  selectDate(currMonth, day) {
-    const selectedDate = new Date(this.currYear, currMonth, day);
-    return selectedDate;
+  selectDate(currMonth:number, day:number):Date {
+    return new Date(this.currYear, currMonth, day);
   }
   alert(selectedDate: Date) {
     const formattedDate = 

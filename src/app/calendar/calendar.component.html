@@ -2,14 +2,14 @@
   <div class="wrapper">
     <header>
       <div>
-        <button class="btn" (click)="changeMonthOrYear(changeType.prevMonth)">&lt;</button>
+        <button class="btn" (click)="changeMonthOrYear(changeType.PrevMonth)">&lt;</button>
         <span class="current-date">{{ months[currMonth] }}</span>
-        <button class="btn" (click)="changeMonthOrYear(changeType.nextMonth)">&gt;</button>
+        <button class="btn" (click)="changeMonthOrYear(changeType.NextMonth)">&gt;</button>
       </div>
       <div>
-        <button class="btn" (click)="changeMonthOrYear(changeType.prevYear)">&lt;&lt;</button>
+        <button class="btn" (click)="changeMonthOrYear(changeType.PrevYear)">&lt;&lt;</button>
         <span class="current-date">{{ currYear }}</span>
-        <button class="btn" (click)="changeMonthOrYear(changeType.nextYear)"> &gt;&gt;</button>
+        <button class="btn" (click)="changeMonthOrYear(changeType.NextYear)"> &gt;&gt;</button>
       </div>
     </header>
     <div class="calendar">
