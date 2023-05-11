@@ -6,7 +6,7 @@ import { ChangeMonthOrYear, monthArray, daysArray } from './data';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  daysOfWeek!: string[]
+  daysOfWeek!: string[];
   daysInMonth!: number[];
   currYear!: number;
   currMonth!: number;
