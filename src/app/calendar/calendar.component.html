@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="wrapper">
+    <header>
+      <div>
+        <button class="btn" (click)="changeMonthOrYear(changeType.PrevMonth)">&lt;</button>
+        <span class="current-date">{{ months[currMonth] }}</span>
+        <button class="btn" (click)="changeMonthOrYear(changeType.NextMonth)">&gt;</button>
+      </div>
+      <div>
+        <button class="btn" (click)="changeMonthOrYear(changeType.PrevYear)">&lt;&lt;</button>
+        <span class="current-date">{{ currYear }}</span>
+        <button class="btn" (click)="changeMonthOrYear(changeType.NextYear)"> &gt;&gt;</button>
+      </div>
+    </header>
+    <div class="calendar">
+      <div class="weeks">
+        <span *ngFor="let day of daysOfWeek">{{ day }}</span>
+      </div>
+      <div class="days">
+        <button class="btn"
+          *ngFor="let day of daysInMonth; let i = index"
+          [ngClass]="{ inactive: i < firstday || i >= firstday + lastdate,  
+          'today': isCurrentDay(day) && !(i < firstday || i >= firstday + lastdate)}"
+          (click)="showDate(i, day)"
+        >
+          {{ day }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
